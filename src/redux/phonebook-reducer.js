@@ -1,10 +1,19 @@
 import { combineReducers } from "redux";
 import { createReducer } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-import actions from "./phonebook-ections";
+import {
+  fetchContacts,
+  addContact,
+  deleteContact,
+} from "./phonebook-operations";
+import { changeFilter } from "./phonebook-actions";
 
 const items = createReducer([], {
-  [actions.addContact]: (state, { payload }) => {
+  [fetchContacts.fulfilled]: (_state, { payload }) => {
+    return payload;
+  },
+
+  [addContact.fulfilled]: (state, { payload }) => {
     const searchDublicate = state.find(
       (contact) => contact.name === payload.name
     );
@@ -13,15 +22,34 @@ const items = createReducer([], {
     } else return [...state, payload];
   },
 
-  [actions.deleteContact]: (state, { payload }) =>
+  [deleteContact.fulfilled]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
 });
 
 const filter = createReducer("", {
-  [actions.changeFilter]: (_, { payload }) => payload,
+  [changeFilter]: (_state, { payload }) => payload,
+});
+
+const loading = createReducer(false, {
+  [fetchContacts.pending]: () => true,
+  [fetchContacts.fulfilled]: () => false,
+  [fetchContacts.rejected]: () => false,
+  [addContact.pending]: () => true,
+  [addContact.fulfilled]: () => false,
+  [addContact.rejected]: () => false,
+  [deleteContact.pending]: () => true,
+  [deleteContact.fulfilled]: () => false,
+  [deleteContact.rejected]: () => false,
+});
+
+const error = createReducer(null, {
+  [fetchContacts.rejected]: (_state, { payload }) => payload,
+  [addContact.rejected]: (_state, { payload }) => payload,
+  [deleteContact.rejected]: (_state, { payload }) => payload,
 });
 
 export default combineReducers({
   items,
   filter,
+  error,
 });

@@ -1,14 +1,21 @@
 import { useSelector, useDispatch } from "react-redux";
-import actions from "../redux/phonebook-ections";
-import { getSensitiveSearch } from "../redux/phonebook-selectors";
+import { useEffect } from "react";
+import { deleteContact, fetchContacts } from "../../redux/phonebook-operations";
+
+// import fetchContacts from "../../redux/phonebook-operations";
+import { getSensitiveSearch } from "../../redux/phonebook-selectors";
 
 import s from "./Contacts.module.css";
 
 export default function Contacts() {
   const contacts = useSelector(getSensitiveSearch);
   const dispatch = useDispatch();
-  const onDeleteContact = (id) => dispatch(actions.deleteContact(id));
 
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
+
+  const onDeleteContact = (id) => dispatch(deleteContact(id));
   return (
     <>
       <ul>
