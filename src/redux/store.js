@@ -7,7 +7,7 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import contactsReducer from "../redux/phonebook-reducer";
+import contactsReducer from "../redux/phonebook/phonebook-reducer";
 
 export const store = configureStore({
   reducer: {

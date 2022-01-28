@@ -1,9 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { deleteContact, fetchContacts } from "../../redux/phonebook-operations";
+import {
+  deleteContact,
+  fetchContacts,
+} from "../../redux/phonebook/phonebook-operations";
 
-// import fetchContacts from "../../redux/phonebook-operations";
-import { getSensitiveSearch } from "../../redux/phonebook-selectors";
+import { getSensitiveSearch } from "../../redux/phonebook/phonebook-selectors";
 
 import s from "./Contacts.module.css";
 
