@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { addContact } from "../../redux/phonebook/phonebook-operations";
+import { operations } from "redux/phonebook";
 
 import s from "./Forms.module.css";
 
@@ -25,7 +25,7 @@ export default function Forms() {
     validationSchema: RegistrationSchema,
 
     onSubmit: (values, { resetForm }) => {
-      dispatch(addContact(values));
+      dispatch(operations.addContact(values));
       resetForm();
     },
   });

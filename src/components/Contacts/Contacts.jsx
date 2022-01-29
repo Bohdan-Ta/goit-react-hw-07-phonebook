@@ -1,25 +1,24 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import {
-  deleteContact,
-  fetchContacts,
-} from "../../redux/phonebook/phonebook-operations";
+import Spinner from "../Spinner";
 
-import { getSensitiveSearch } from "../../redux/phonebook/phonebook-selectors";
+import { operations, selectors } from "redux/phonebook";
 
 import s from "./Contacts.module.css";
 
 export default function Contacts() {
-  const contacts = useSelector(getSensitiveSearch);
+  const isLoading = useSelector(selectors.getLoading);
+  const contacts = useSelector(selectors.getSensitiveSearch);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(operations.fetchContacts());
   }, [dispatch]);
 
-  const onDeleteContact = (id) => dispatch(deleteContact(id));
+  const onDeleteContact = (id) => dispatch(operations.deleteContact(id));
   return (
     <>
+      {isLoading && <Spinner />}
       <ul>
         {contacts.map(({ id, name, number }) => (
           <li key={id} className={s.list}>
