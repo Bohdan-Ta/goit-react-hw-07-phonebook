@@ -8,7 +8,7 @@ export default function Spinner() {
       wrapperClass={s.loader}
       heigth="100"
       width="100"
-      color="grey"
+      color="brown"
       ariaLabel="loading"
     />
   );

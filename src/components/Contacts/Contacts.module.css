@@ -19,7 +19,7 @@
 }
 .company {
   padding: 0 2px;
-  color: #ff3000;
+  color: brown;
   text-transform: uppercase;
 }
 .totalContact {
@@ -29,7 +29,7 @@
   color: antiquewhite;
 }
 .slidingButton {
-  min-width: 150px;
+  min-width: 130px;
   height: 50px;
   text-decoration: none;
   color: rgb(14, 13, 13);
@@ -40,7 +40,7 @@
   background-color: #999595;
   border-image: linear-gradient(180deg, #ff3000, #ed0200, #ff096c, #d50082);
   border-image-slice: 1;
-  margin: 10px 20px;
+  margin: 10px 0;
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   overflow: hidden;
