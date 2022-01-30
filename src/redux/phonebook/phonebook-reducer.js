@@ -19,7 +19,7 @@ const items = createReducer([], {
     );
     if (searchDublicate) {
       toast.warning(`${payload.name} is already in contacts`);
-    } else return [...state, payload];
+    } else return [payload, ...state];
   },
 
   [deleteContact.fulfilled]: (state, { payload }) =>
@@ -37,6 +37,11 @@ const loading = createReducer(false, {
   [addContact.pending]: () => true,
   [addContact.fulfilled]: () => false,
   [addContact.rejected]: () => false,
+  // [deleteContact.pending]: () => true,
+  // [deleteContact.fulfilled]: () => false,
+  // [deleteContact.rejected]: () => false,
+});
+const deleting = createReducer(false, {
   [deleteContact.pending]: () => true,
   [deleteContact.fulfilled]: () => false,
   [deleteContact.rejected]: () => false,
@@ -52,5 +57,6 @@ export default combineReducers({
   items,
   filter,
   loading,
+  deleting,
   error,
 });

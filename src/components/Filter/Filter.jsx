@@ -19,7 +19,7 @@ export default function Filter() {
           autoComplete="off"
           minLength={2}
           debounceTimeout={300}
-          placeholder="search ........"
+          placeholder="search contact by name.."
           value={value}
           onChange={onChange}
           className={s.input}

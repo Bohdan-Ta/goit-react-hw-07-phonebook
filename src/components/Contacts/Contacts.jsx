@@ -8,6 +8,7 @@ import s from "./Contacts.module.css";
 
 export default function Contacts() {
   const isLoading = useSelector(selectors.getLoading);
+  const deleting = useSelector(selectors.getDeleting);
   const contacts = useSelector(selectors.getSensitiveSearch);
   const dispatch = useDispatch();
 
@@ -29,8 +30,9 @@ export default function Contacts() {
             <button
               onClick={() => onDeleteContact(id)}
               className={s.slidingButton}
+              disabled={deleting}
             >
-              delete
+              {deleting ? "...deleting" : "delete"}
             </button>
           </li>
         ))}
