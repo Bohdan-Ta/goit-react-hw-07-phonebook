@@ -37,9 +37,6 @@ const loading = createReducer(false, {
   [addContact.pending]: () => true,
   [addContact.fulfilled]: () => false,
   [addContact.rejected]: () => false,
-  // [deleteContact.pending]: () => true,
-  // [deleteContact.fulfilled]: () => false,
-  // [deleteContact.rejected]: () => false,
 });
 const deleting = createReducer(false, {
   [deleteContact.pending]: () => true,

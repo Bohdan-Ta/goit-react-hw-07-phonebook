@@ -1,5 +1,6 @@
 .form {
   position: relative;
+  text-align: left;
   top: 20px;
   margin-bottom: 100px;
 }
@@ -17,8 +18,7 @@
 }
 .label {
   position: absolute;
-  left: 13px;
-  color: white;
+  color: antiquewhite;
   font-size: 1rem;
   font-weight: 300;
   text-transform: uppercase;

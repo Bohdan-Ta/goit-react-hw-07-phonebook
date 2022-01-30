@@ -7,15 +7,29 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: black 1px solid;
+}
+.datas {
+  text-align: left;
+}
+.name {
+  padding: 0 2px;
+  color: antiquewhite;
+  text-transform: uppercase;
+}
+.company {
+  padding: 0 2px;
+  color: #ff3000;
+  text-transform: uppercase;
 }
 .totalContact {
   padding-top: 20px;
   font-size: 1rem;
   text-transform: uppercase;
-  color: white;
+  color: antiquewhite;
 }
 .slidingButton {
-  width: 150px;
+  min-width: 150px;
   height: 50px;
   text-decoration: none;
   color: rgb(14, 13, 13);
@@ -23,6 +37,7 @@
   position: relative;
   padding: 15px 30px;
   border: 1px solid;
+  background-color: #999595;
   border-image: linear-gradient(180deg, #ff3000, #ed0200, #ff096c, #d50082);
   border-image-slice: 1;
   margin: 10px 20px;
@@ -41,7 +56,7 @@
   height: 0;
   width: 100%;
   z-index: -1;
-  color: white;
+  color: antiquewhite;
   background: linear-gradient(180deg, #ff3000, #ed0200, #ff096c, #d50082);
   transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }

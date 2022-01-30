@@ -22,7 +22,7 @@
   display: block;
   transition: 0.2s;
   font-size: 1rem;
-  color: white;
+  color: antiquewhite;
   text-transform: uppercase;
 }
 
@@ -67,18 +67,18 @@
   margin: 10px 20px;
   align-items: center;
   position: relative;
-  color: white;
+  color: antiquewhite;
   border: 1px solid red;
   background: none;
   font-weight: 300;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
   cursor: pointer;
 }
 .borderButton:before,
 .borderButton:after {
-  content: '';
+  content: "";
   position: absolute;
   width: 0;
   height: 0;

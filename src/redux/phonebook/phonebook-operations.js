@@ -22,9 +22,9 @@ export const fetchContacts = createAsyncThunk(
 );
 export const addContact = createAsyncThunk(
   "contacts/addContact",
-  async ({ name, number }) => {
+  async ({ name, number, company }) => {
     try {
-      const { data } = await addContactApi({ name, number });
+      const { data } = await addContactApi({ name, number, company });
       return data;
     } catch (error) {
       toast.dark(`Sorry. Something went wrong. Try to add a contact again... `);

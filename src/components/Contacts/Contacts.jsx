@@ -30,11 +30,12 @@ export default function Contacts() {
     <>
       {isLoading && <Spinner />}
       <ul className={s.box_contacts}>
-        {sortContacts.map(({ id, name, number }) => (
+        {sortContacts.map(({ id, name, number, company }) => (
           <li key={id} className={s.list}>
-            <div>
+            <div className={s.datas}>
               <p className={s.name}>{name}</p>
               <p className={s.number}>{number}</p>
+              <p className={s.company}>{company}</p>
             </div>
             <button
               onClick={() => onDeleteContact(id)}

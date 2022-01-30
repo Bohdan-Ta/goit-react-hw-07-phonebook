@@ -20,6 +20,7 @@ export default function Forms() {
     initialValues: {
       name: "",
       number: "",
+      company: "",
     },
 
     validationSchema: RegistrationSchema,
@@ -56,6 +57,17 @@ export default function Forms() {
           />
           {formik.errors.number}
           <label className={s.label}>Number:</label>
+        </div>
+        <div className={s.inputContainer}>
+          <input
+            type="text"
+            name="company"
+            onChange={formik.handleChange}
+            value={formik.values.company}
+            className={s.input}
+          />
+          {formik.errors.company}
+          <label className={s.label}>Company:</label>
         </div>
         <button type="submit" className={s.borderButton}>
           add contact
