@@ -10,6 +10,15 @@ export default function Contacts() {
   const isLoading = useSelector(selectors.getLoading);
   const deleting = useSelector(selectors.getDeleting);
   const contacts = useSelector(selectors.getSensitiveSearch);
+  const sortContacts = contacts.sort(function (a, b) {
+    if (a.name > b.name) {
+      return 1;
+    }
+    if (a.name < b.name) {
+      return -1;
+    }
+    return 0;
+  });
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -20,8 +29,8 @@ export default function Contacts() {
   return (
     <>
       {isLoading && <Spinner />}
-      <ul>
-        {contacts.map(({ id, name, number }) => (
+      <ul className={s.box_contacts}>
+        {sortContacts.map(({ id, name, number }) => (
           <li key={id} className={s.list}>
             <div>
               <p className={s.name}>{name}</p>
