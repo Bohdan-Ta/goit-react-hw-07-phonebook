@@ -68,3 +68,17 @@
   top: auto;
   height: 100%;
 }
+
+.addContact {
+  margin-bottom: 20px;
+  padding: 2px;
+  display: inline-block;
+  text-align: center;
+  justify-content: center;
+  border: 0;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  outline: none;
+}

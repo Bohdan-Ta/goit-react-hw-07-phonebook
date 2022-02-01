@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -15,6 +16,7 @@ const RegistrationSchema = Yup.object().shape({
 });
 
 export default function Forms() {
+  const history = useNavigate();
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -28,6 +30,7 @@ export default function Forms() {
     onSubmit: (values, { resetForm }) => {
       dispatch(operations.addContact(values));
       resetForm();
+      history("/contacts");
     },
   });
   return (
