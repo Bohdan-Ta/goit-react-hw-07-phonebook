@@ -3,6 +3,10 @@ import { toast } from "react-toastify";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 axios.defaults.baseURL = "https://61f16bd6072f86001749f1d6.mockapi.io/";
+axios.defaults.headers.patch = {
+  "Content-Type": "application/json",
+  "X-Requested-With": "XMLHttpRequest",
+};
 export const fetchContactsApi = () => axios("contacts");
 export const addContactApi = (contact) => axios.post("contacts", contact);
 export const deleteContactApi = (id) => axios.delete(`contacts/${id}`);

@@ -10,8 +10,9 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import contactsReducer from "../redux/phonebook/phonebook-reducer";
+import contactsReducer from "./phonebook/phonebook-reducer";
 import { authReducer } from "./auth";
+
 const authPersistConfig = {
   key: "auth",
   storage,
@@ -20,7 +21,7 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     contacts: contactsReducer,
-    // auth: persistReducer(authPersistConfig, authReducer),
+    auth: persistReducer(authPersistConfig, authReducer),
   },
   middleware: getDefaultMiddleware({
     serializableCheck: {
