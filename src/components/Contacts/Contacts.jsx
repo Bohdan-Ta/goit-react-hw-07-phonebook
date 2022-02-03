@@ -1,12 +1,12 @@
-import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import Spinner from "../Spinner";
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Spinner from '../Spinner';
 
-import { operations, selectors } from "redux/phonebook";
-import { GrAddCircle } from "react-icons/gr";
+import { operations, selectors } from 'redux/phonebook';
+import { GrAddCircle } from 'react-icons/gr';
 
-import s from "./Contacts.module.css";
+import s from './Contacts.module.css';
 
 export default function Contacts() {
   const history = useNavigate();
@@ -14,30 +14,27 @@ export default function Contacts() {
   const isLoading = useSelector(selectors.getLoading);
   const deleting = useSelector(selectors.getDeleting);
   const contacts = useSelector(selectors.getSensitiveSearch);
+  const dispatch = useDispatch();
+
   const sortContacts = contacts.sort(function (a, b) {
-    if (a.name > b.name) {
-      return 1;
-    }
-    if (a.name < b.name) {
-      return -1;
-    }
+    if (a.name > b.name) return 1;
+    if (a.name < b.name) return -1;
     return 0;
   });
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(operations.fetchContacts());
   }, [dispatch]);
 
-  const onDeleteContact = (id) => dispatch(operations.deleteContact(id));
+  const onDeleteContact = id => dispatch(operations.deleteContact(id));
   const addContact = () => {
-    history("/form");
+    history('/form');
   };
   return (
     <>
       {isLoading && <Spinner />}
       <button type="button" onClick={addContact} className={s.addContact}>
-        <GrAddCircle style={{ width: "60", fill: "gren", height: "60" }} />
+        <GrAddCircle style={{ width: '60', fill: 'gren', height: '60' }} />
       </button>
       <ul className={s.box_contacts}>
         {sortContacts.map(({ id, name, number, company }) => (
@@ -52,14 +49,12 @@ export default function Contacts() {
               className={s.slidingButton}
               disabled={deleting}
             >
-              {deleting ? "...deleting" : "delete"}
+              {deleting ? '...deleting' : 'delete'}
             </button>
           </li>
         ))}
       </ul>
-      <p className={s.totalContact}>
-        all contacts in phonebook: {contacts.length}
-      </p>
+      <p className={s.totalContact}>find contacts: {contacts.length}</p>
     </>
   );
 }
