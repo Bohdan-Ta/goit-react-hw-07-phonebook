@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ErrorMessage } from 'formik';
 
 axios.defaults.baseURL = 'https://61f16bd6072f86001749f1d6.mockapi.io/';
 export const fetchContactsApi = () => axios('contacts');
@@ -18,7 +17,7 @@ export const fetchContacts = createAsyncThunk(
       toast.error(
         `Sorry. Something went wrong. Try loading the page agein... `,
       );
-      return rejectWithValue(error.message);
+      return rejectWithValue();
     }
   },
 );
@@ -31,7 +30,7 @@ export const addContact = createAsyncThunk(
     } catch (error) {
       toast.dark(`Sorry. Something went wrong. Try to add a contact again... `);
     }
-    return rejectWithValue(ErrorMessage);
+    return rejectWithValue();
   },
 );
 
@@ -44,6 +43,6 @@ export const deleteContact = createAsyncThunk(
     } catch (error) {
       console.log(error);
     }
-    return rejectWithValue(ErrorMessage);
+    return rejectWithValue();
   },
 );
