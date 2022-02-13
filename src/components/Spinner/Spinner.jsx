@@ -1,10 +1,10 @@
-import { Audio } from "react-loader-spinner";
+import { Oval } from 'react-loader-spinner';
 
-import s from "./Spinner.module.css";
+import s from './Spinner.module.css';
 
 export default function Spinner() {
   return (
-    <Audio
+    <Oval
       wrapperClass={s.loader}
       heigth="100"
       width="100"

@@ -17,7 +17,7 @@ export const fetchContacts = createAsyncThunk(
       toast.error(
         `Sorry. Something went wrong. Try loading the page agein... `,
       );
-      return rejectWithValue();
+      return rejectWithValue(error);
     }
   },
 );
@@ -29,8 +29,8 @@ export const addContact = createAsyncThunk(
       return data;
     } catch (error) {
       toast.dark(`Sorry. Something went wrong. Try to add a contact again... `);
+      return rejectWithValue(error);
     }
-    return rejectWithValue();
   },
 );
 
@@ -42,7 +42,7 @@ export const deleteContact = createAsyncThunk(
       return id;
     } catch (error) {
       console.log(error);
+      return rejectWithValue(error);
     }
-    return rejectWithValue();
   },
 );
